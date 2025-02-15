@@ -3,165 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panoplii Vânătorești - Artă și Tradiție</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <title>Panoplii Vânătorești</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap');
-
-        :root {
-            --color-hunting-dark: #1A2F1A;
-            --color-hunting-medium: #2C4A2C;
-            --color-wood: #8B4513;
-            --color-gold: #D4AF37;
-            --color-cream: #F5F5DC;
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background-color: #2e2b23;
+            color: #f4e1c1;
         }
-
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('wood-texture.jpg') no-repeat center center/cover;
+            padding: 20px 50px;
         }
-
-        .font-montserrat {
-            font-family: 'Montserrat', sans-serif;
+        nav {
+            display: flex;
+            gap: 30px;
         }
-
-        .bg-hunting-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.828-1.415 1.415L51.8 0h2.827zM5.373 0l-.83.828L5.96 2.243 8.2 0H5.374zM48.97 0l3.657 3.657-1.414 1.414L46.143 0h2.828zM11.03 0L7.372 3.657 8.787 5.07 13.857 0H11.03zm32.284 0L49.8 6.485 48.384 7.9l-7.9-7.9h2.83zM16.686 0L10.2 6.485 11.616 7.9l7.9-7.9h-2.83zm20.97 0l9.315 9.314-1.414 1.414L34.828 0h2.83zM22.344 0L13.03 9.314l1.414 1.414L25.172 0h-2.83zM32 0l12.142 12.142-1.414 1.414L30 .828 17.272 13.556l-1.414-1.414L28 0h4zM.284 0l28 28-1.414 1.414L0 2.544V0h.284zM0 5.373l25.456 25.455-1.414 1.415L0 8.2V5.374zm0 5.656l22.627 22.627-1.414 1.414L0 13.86v-2.83zm0 5.656l19.799 19.8-1.414 1.413L0 19.514v-2.83zm0 5.657l16.97 16.97-1.414 1.415L0 25.172v-2.83zM0 28l14.142 14.142-1.414 1.414L0 30.828V28zm0 5.657L11.314 44.97 9.9 46.386l-9.9-9.9v-2.828zm0 5.657L8.485 47.8 7.07 49.212 0 42.143v-2.83zm0 5.657l5.657 5.657-1.414 1.415L0 47.8v-2.83zm0 5.657l2.828 2.83-1.414 1.413L0 53.456v-2.83zM54.627 60L30 35.373 5.373 60H8.2L30 38.2 51.8 60h2.827zm-5.656 0L30 41.03 11.03 60h2.828L30 43.858 46.142 60h2.83zm-5.656 0L30 46.686 16.686 60h2.83L30 49.515 40.485 60h2.83zm-5.657 0L30 52.343 22.344 60h2.83L30 55.172 34.828 60h2.83zM32 60l-2-2-2 2h4zM59.716 0l-28 28 1.414 1.414L60 2.544V0h-.284zM60 5.373L34.544 30.828l1.414 1.415L60 8.2V5.374zm0 5.656L37.373 33.656l1.414 1.414L60 13.86v-2.83zm0 5.656l-19.799 19.8 1.414 1.413L60 19.514v-2.83zm0 5.657l-16.97 16.97 1.414 1.415L60 25.172v-2.83zM60 28L45.858 42.142l1.414 1.414L60 30.828V28zm0 5.657L48.686 44.97l1.415 1.415 9.9-9.9v-2.828zm0 5.657L51.515 47.8l1.414 1.413 7.07-7.07v-2.83zm0 5.657l-5.657 5.657 1.414 1.415L60 47.8v-2.83zm0 5.657l-2.828 2.83 1.414 1.413L60 53.456v-2.83zM39.9 16.385l1.414-1.414L30 3.658 18.686 14.97l1.415 1.415 9.9-9.9 9.9 9.9zm-2.83 2.828l1.415-1.414L30 9.313 21.515 17.8l1.414 1.413L30 11.97l7.07 7.07zm-2.827 2.83l1.414-1.416L30 14.97l-5.657 5.657 1.414 1.415L30 17.8l4.242 4.242zm-2.83 2.827l1.415-1.414L30 20.626l-2.828 2.83 1.414 1.414L30 23.456l1.414 1.414zM30 26.284l-1.414 1.414L30 29.112l1.414-1.414L30 26.284z' fill='%232C4A2C' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        nav a {
+            color: #f4e1c1;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+            transition: color 0.3s;
         }
-
-        .wood-texture {
-            background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238B4513' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        nav a:hover {
+            color: #d4af37;
         }
-
-        .gold-accent {
-            text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.3);
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
         }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
         }
-
-        .btn-hunting {
-            @apply bg-green-800 text-white px-8 py-3 rounded-lg shadow-lg transform transition-all duration-300;
+        .hero h2 {
+            font-size: 2em;
+            color: #d4af37;
         }
-
-        .btn-hunting:hover {
-            @apply bg-green-900 scale-105;
+        .info-page {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 20px;
         }
-
-        .nav-link {
-            @apply relative px-4 py-2;
-        }
-
-        .nav-link::after {
-            content: '';
-            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gold transition-all duration-300;
-        }
-
-        .nav-link:hover::after {
-            @apply w-full;
-        }
-
-        .card-hunting {
-            @apply bg-white rounded-xl shadow-xl overflow-hidden transform transition-all duration-300;
-        }
-
-        .card-hunting:hover {
-            @apply scale-105 shadow-2xl;
-        }
-
-        .parallax-bg {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+        .contact-info {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="font-montserrat bg-cream">
-    <!-- Header cu meniu fix -->
-    <header class="fixed w-full z-50 bg-hunting-dark bg-opacity-95 text-white">
-        <nav class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-playfair font-bold gold-accent">
-                    Panoplii Vânătorești
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link">Acasă</a>
-                    <a href="#despre" class="nav-link">Despre noi</a>
-                    <a href="#panoplii" class="nav-link">Panoplii</a>
-                    <a href="#produse" class="nav-link">Produse</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-
-                <button class="md:hidden focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-                    </svg>
-                </button>
-            </div>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Acasă</a>
+            <a href="info.html">Mai multe informații</a>
         </nav>
     </header>
-
-    <!-- Hero Section cu Parallax -->
-    <section id="home" class="h-screen relative overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="/api/placeholder/1920/1080" alt="Hero Background" class="w-full h-full object-cover"/>
-            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        </div>
-        
-        <div class="relative container mx-auto px-6 h-full flex items-center">
-            <div class="max-w-3xl">
-                <h1 class="text-6xl md:text-7xl font-playfair font-bold text-white mb-6 gold-accent reveal">
-                    Artă și Pasiune în Panoplii Vânătorești
-                </h1>
-                <p class="text-xl text-gray-200 mb-8 reveal">
-                    Creăm opere de artă care îmbină tradiția vânătorească cu eleganța și rafinamentul modern.
-                </p>
-                <a href="#contact" class="btn-hunting reveal">
-                    Descoperă Colecția
-                </a>
-            </div>
-        </div>
+    <section class="hero">
+        <h1>Panoplii Vânătorești</h1>
+        <h2>Stef Virgil</h2>
     </section>
+</body>
+</html>
 
-    <!-- Despre Noi -->
-    <section id="despre" class="py-20 bg-white wood-texture">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-4xl font-playfair font-bold text-center text-hunting-dark mb-16 reveal">
-                    Tradiție și Măiestrie
-                </h2>
-                
-                <div class="grid md:grid-cols-2 gap-12">
-                    <div class="space-y-6 reveal">
-                        <p class="text-lg">
-                            Cu o experiență de peste două decenii în domeniul artizanatului vânătoresc, ne-am dedicat creării unor panoplii care îmbină perfect eleganța cu funcționalitatea.
-                        </p>
-                        <p class="text-lg">
-                            Fiecare piesă este realizată manual, folosind materiale naturale de cea mai înaltă calitate și tehnici tradiționale transmise din generație în generație.
-                        </p>
-                    </div>
-                    
-                    <div class="reveal">
-                        <img src="/api/placeholder/600/400" alt="Atelier" class="w-full h-full object-cover rounded-xl shadow-2xl"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Galerie Panoplii -->
-    <section id="panoplii" class="py-20 bg-hunting-pattern">
-        <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-playfair font-bold text-center text-hunting-dark mb-16 reveal">
-                Galerie Panoplii
-            </h2>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="card-hunting reveal">
-                    <div class="relative overflow-hidden">
-                        <img src="/api/placeholder/400/300" alt="Panoplie Clasică" class="w-full h-64 object-cover transition-transform duration-500 transform hover:scale
+<!-- info.html -->
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mai multe informații</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background-color: #2e2b23;
+            color: #f4e1c1;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+        .info-page h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .info-page h2 {
+            font-size: 1.8em;
+            color: #d4af37;
+        }
+        .contact-info {
+            position: fixed;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="info-page">
+        <h1>Momentan, produsele nu sunt disponibile pentru vânzare.</h1>
+        <h2>Pentru detalii și comenzi, contactați-ne pe email sau telefon.</h2>
+    </div>
+    <div class="contact-info">
+        <span>virgilstef33@gmail.com</span>
+        <span>0735556606</span>
+    </div>
+</body>
+</html>
